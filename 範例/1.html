@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Page Title</title>
+</head>
+
+<body>
+  <input id="myinput" onchange="ex()" />
+  <label id="mylabel"></label>
+</body>
+
+</html>
+
+<script>
+  function ex() {
+    // document 我們稱為動物件，簡單說要對網頁的html做動作 基本上都要經過document
+    // getElementById() 我們稱為 '方法' => 我要取得 id 叫 myinput 的html (<input id="myinput" onchange="ex()" />)
+    // value = 他輸入的資料
+    // 所以這整段 = 我要取得 <input id="myinput" onchange="ex()" /> 所輸入的資料 把資料傳給 input
+    const input = document.getElementById('myinput').value;
+
+    // 我創建了一個叫output 的變數
+    let output = "";
+
+    // let i = 0; 我跑第一次 i = 0
+    // i < Number(input) 最大值 = 我輸入的數字
+    // i++ => i = i + 1 的縮寫 就是說 我每跑一次 就 + 1
+    // 所以把他合起來就是 我的 起始為 0 尾數為 Number(input) 每次跳 + 1
+    // Number(input) => Number() 是一個方法 =他意思是 我要將我輸入的東西 專換成數字 因為 '1' 跟 1 不一樣 我們要後面那個
+    // 我要跑回圈 跑的次數 = 0~ 我輸入的數字 Number(input)
+    for (let i = 0; i < Number(input); i++) {
+      // 如果 i 不等於 0 那我就執行
+      // 用意:第一次 不須加 、
+      if (i !== 0) {
+        output += '、';
+      }
+
+      // output += 是 output =  output + 的縮寫
+      // 意思是 我要將 i 先 +1 在 * 2 之後再轉換成 '' 
+      output += ((i + 1) * 2).toString();
+    }
+
+    // 將output 放到 <label id="mylabel"> 放在這裡 </label>
+    // innerHTML => 意思就是 <> 這裡的東西 <> 
+    document.getElementById('mylabel').innerHTML = output;
+  }
+</script>
